@@ -25,6 +25,6 @@ To regenerate existed design-token based on changes in stored jsons, please run 
 
 ## Navigation based on articles
 
-1. [Implementing a Design System in Mobile Applications: A Developer’s Perspective (Part One).](https://medium.com/@ivanfomenko/implementing-a-design-system-in-mobile-applications-a-developers-perspective-part-one-c36d5cbf655f) - [git tag]()
+1. [Implementing a Design System in Mobile Applications: A Developer’s Perspective (Part One).](https://medium.com/@ivanfomenko/implementing-a-design-system-in-mobile-applications-a-developers-perspective-part-one-c36d5cbf655f) - [git tag](https://github.com/ivfomenko/iOSDesignSystem/releases/tag/Part1%2BPart2)
 
-2. [Integrate and Automate! Implementing a Design System in Mobile Applications (Part Two)](https://medium.com/@ivanfomenko/integrate-and-automate-implementing-a-design-system-in-mobile-applications-part-two-2939ddf720d4) - [git tag]()
+2. [Integrate and Automate! Implementing a Design System in Mobile Applications (Part Two)](https://medium.com/@ivanfomenko/integrate-and-automate-implementing-a-design-system-in-mobile-applications-part-two-2939ddf720d4) - [git tag](https://github.com/ivfomenko/iOSDesignSystem/releases/tag/Part1%2BPart2)

@@ -1,0 +1,53 @@
+{% if catalogs %}{% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"false"}}{% endset%}#if os(macOS)
+    import AppKit
+  #elseif os(iOS)
+    import UIKit
+  #elseif os(tvOS) || os(watchOS)
+    import UIKit
+  #endif
+  #if canImport(SwiftUI)
+    import SwiftUI
+  #endif
+  
+  {% macro makeIconTokenName tokenNameParts %}{{tokenNameParts.last|swiftIdentifier|lowerFirstWord}}_{{tokenNameParts.first|swiftIdentifier|lowerFirstLetter }}{% endmacro %}
+  {% macro makeStructName key %}{{key|upperFirstLetter}}Token{% endmacro %}
+  {% macro makeIconToken token tokenNameParts key %}
+  public static let {% call makeIconTokenName tokenNameParts %} = {% call makeStructName key %}(name: "{{token.value}}")
+  {% endmacro %}
+  {% macro makeTokenGroup key groupName tokens %}
+  {% for token in tokens %}
+  {% call makeIconToken token token.name|split:"_" key %}
+  {% endfor %}
+  {% endmacro %}
+  {% macro makeAssets key assetGroups %}
+  {% for group in assetGroups %}
+  // MARK: - {{group.name|upperFirstLetter}} icon types
+  {% call makeTokenGroup key group.name group.items %}
+  {% endfor %}
+  {% endmacro %}
+  {% macro makeTokensFromCatalog catalog key %}
+  // MARK: - {% call makeStructName key %}s listing
+  /// Automatically generated and tokenised objects for public usage
+  extension {% call makeStructName key %} {
+    {% filter indent:2 %}{% call makeAssets key catalog.assets %}{% endfilter %}
+  }
+  {% endmacro %}
+  {% macro makeTokensListing catalog key %}
+  // MARK: - All {% call makeStructName key %}s tokens 
+  extension {% call makeStructName key %} {
+  {% for group in catalog.assets %}
+    public static let all{{group.name|upperFirstLetter}}Tokens: [{% call makeStructName key %}] = [
+      {% for token in group.items %}
+        .{% call makeIconTokenName token.name|split:"_" %}{%if not forloop.last %},{%endif%}
+      {% endfor %}
+    ]
+  {% endfor %}
+  }
+  {% endmacro %}
+  {% for catalog in catalogs %}
+    {% call makeTokensFromCatalog catalog "icon" %} 
+    {% call makeTokensListing catalog "icon" %}
+  {% endfor %}
+  {% else %}
+  // No assets found
+  {% endif %}

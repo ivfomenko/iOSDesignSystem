@@ -1,0 +1,19 @@
+min_version = "2024.11.32"
+
+[tools]
+tuist = "4.36.0"
+swiftformat = "0.54"
+
+[tasks."generate:project"]
+description = "Generates the Design Preview Project."
+run = "cd App; mise x -- tuist install; mise x -- tuist generate"
+
+[tasks."generate:design-system"]
+description = "Generates Design system components with swiftgen help"
+run = "mise x -- swiftgen config run"
+
+[settings]
+task_run_auto_install = false
+exec_auto_install = false
+experimental = true
+lockfile = true

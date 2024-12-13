@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Git hook to validate branch naming standards. It performs checks when you're trying to push your changes. 
+# The hook will not block you from creating local branches, but it will prevent you to push non-standardized branch names.
+# More information about githooks: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+
+LC_ALL=C
+
+# get local branch
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# regex to validate local branch
+valid_branch_regex="^((feat|fix|docs|release|hotfix|chore)\/.*)|(develop|main)"
+
+# error message
+message="Something is wrong with your branch name. Branch names must follow team standards: $valid_branch_regex. Your push will be rejected. Please, rename your branch to a valid name and try again."
+
+if [[ ! $local_branch =~ $valid_branch_regex ]]
+then
+    echo "$message"
+    exit 1
+fi
+
+exit 0

@@ -1,0 +1,8 @@
+#!/bin/sh
+eval "$($HOME/.local/bin/mise activate -C $SRCROOT bash --shims)"
+
+if which python3; then 
+    mise x -- python3 ./scripts/git-format-staged.py  --formatter "swiftformat stdin --stdinpath '{}'" "*.swift"
+else
+    2>&1 echo "warning: Please install python and mise to run SwiftFormat as a pre-commit hook"
+fi

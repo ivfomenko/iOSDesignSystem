@@ -1,0 +1,12 @@
+json:
+  - inputs:
+      - Package/Sources/iOSDesignSystemKit/Measurements/Resources/measurements.json
+    outputs:
+      templatePath: SwiftgenTemplates/Json/Measurements.stencil
+      output: Package/Sources/iOSDesignSystemKit/Measurements/Generated/MeasurementTokens.swift
+xcassets:
+  - inputs:
+      - Package/Sources/iOSDesignSystemKit/Icons/Resources/IconTokens.xcassets
+    outputs:
+      - templatePath: SwiftgenTemplates/Assets/IconTokens.stencil
+        output: Package/Sources/iOSDesignSystemKit/Icons/Generated/IconTokens.swift

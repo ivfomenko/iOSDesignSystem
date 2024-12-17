@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#MISE description="Generates Design system components with local scripts and swiftgen help"
+
+set -eo pipefail
+
+# generating colors
+swift ./scripts/design-system-generation/make_colors.swift
+
+mise x -- swiftgen config run

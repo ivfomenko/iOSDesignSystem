@@ -1,0 +1,34 @@
+{
+    "error": {
+        "light": "#F03D3Eff",
+        "dark": "#F03D3Eff"
+    },
+    "success": {
+        "light": "#007B40ff",
+        "dark": "#007B40ff"
+    },
+    "notificaiton": {
+        "light": "#D84910ff",
+        "dark": "#D84910ff"
+    },
+    "primary": {
+        "light": "#E85B81ff",
+        "dark": "#E85B81ff"
+    },
+    "alternative": {
+        "light": "#5E48E8ff",
+        "dark": "#5E48E8ff"
+    },
+    "highlight": {
+        "light": "#8CE0F3ff",
+        "dark": "#8CE0F3ff"
+    },
+    "monoPrimary": {
+        "light": "#252525ff",
+        "dark": "#252525ff"
+    },
+    "monoSecondary": {
+        "light": "#505050ff",
+        "dark": "#505050ff"
+    }
+}

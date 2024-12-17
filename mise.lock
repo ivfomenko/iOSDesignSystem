@@ -1,5 +1,8 @@
 [tools.swiftformat]
 version = "0.54.6"
 
+[tools.swiftgen]
+version = "6.6.3"
+
 [tools.tuist]
 version = "4.36.0"

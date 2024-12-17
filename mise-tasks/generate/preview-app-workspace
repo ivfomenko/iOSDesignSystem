@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#MISE description="Generates the Design System Preview Project."
+
+cd App
+
+mise x -- tuist install
+mise x -- tuist generate

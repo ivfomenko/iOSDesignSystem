@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#MISE description="Open Design System SPM via Xcode"
+
+set -eo pipefail
+
+xed .

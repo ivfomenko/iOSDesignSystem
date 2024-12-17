@@ -59,6 +59,10 @@ activate_mise() {
     else
         echo "Mise activation already present in $config_file."
     fi
+
+    # make mise-tasks executable, so mise can detect them/
+    # More info: https://mise.jdx.dev/tasks/file-tasks.html
+    chmod ug+x mise-tasks/*
 }
 
 install_git_hooks() {

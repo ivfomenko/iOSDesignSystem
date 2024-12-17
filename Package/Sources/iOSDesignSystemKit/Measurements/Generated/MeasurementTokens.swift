@@ -5,46 +5,40 @@ import CoreFoundation
 public extension CGFloat {
     // MARK: - Tokens declaration
 
-    /**
-     **x1** size constant describing the frame of an element and equal to **4 pt**.
-
-     Can be used to define element `width`, `height`, etc... .
-     */
+    /// **x1** size constant describing the frame of an element and equal to **4 pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     static let size_4pt: CGFloat = 4
 
-    /**
-     **x2** size constant describing the frame of an element and equal to **8 pt**.
-
-     Can be used to define element `width`, `height`, etc... .
-     */
+    /// **x2** size constant describing the frame of an element and equal to **8 pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     static let size_8pt: CGFloat = 8
 
-    /**
-     **x3** size constant describing the frame of an element and equal to **12 pt**.
-
-     Can be used to define element `width`, `height`, etc... .
-     */
+    /// **x3** size constant describing the frame of an element and equal to **12 pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     static let size_12pt: CGFloat = 12
 
-    /**
-     **x4** size constant describing the frame of an element and equal to **16 pt**.
-
-     Can be used to define element `width`, `height`, etc... .
-     */
+    /// **x4** size constant describing the frame of an element and equal to **16 pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     static let size_16pt: CGFloat = 16
 
-    /**
-     **x5** size constant describing the frame of an element and equal to **20 pt**.
-
-     Can be used to define element `width`, `height`, etc... .
-     */
+    /// **x5** size constant describing the frame of an element and equal to **20 pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     static let size_20pt: CGFloat = 20
 
-    /**
-     **x6** size constant describing the frame of an element and equal to **24 pt**.
-
-     Can be used to define element `width`, `height`, etc... .
-     */
+    /// **x6** size constant describing the frame of an element and equal to **24 pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     static let size_24pt: CGFloat = 24
 }
 
@@ -59,46 +53,40 @@ public extension CGFloat {
 public extension CGFloat {
     // MARK: - Tokens declaration
 
-    /**
-     **x1** spacing constant describing space between or around elements and equal to **4 pt**.
-
-     Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-     */
+    /// **x1** spacing constant describing space between or around elements and equal to **4 pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     static let space_4pt: CGFloat = 4
 
-    /**
-     **x2** spacing constant describing space between or around elements and equal to **8 pt**.
-
-     Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-     */
+    /// **x2** spacing constant describing space between or around elements and equal to **8 pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     static let space_8pt: CGFloat = 8
 
-    /**
-     **x3** spacing constant describing space between or around elements and equal to **12 pt**.
-
-     Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-     */
+    /// **x3** spacing constant describing space between or around elements and equal to **12 pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     static let space_12pt: CGFloat = 12
 
-    /**
-     **x4** spacing constant describing space between or around elements and equal to **16 pt**.
-
-     Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-     */
+    /// **x4** spacing constant describing space between or around elements and equal to **16 pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     static let space_16pt: CGFloat = 16
 
-    /**
-     **x5** spacing constant describing space between or around elements and equal to **20 pt**.
-
-     Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-     */
+    /// **x5** spacing constant describing space between or around elements and equal to **20 pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     static let space_20pt: CGFloat = 20
 
-    /**
-     **x6** spacing constant describing space between or around elements and equal to **24 pt**.
-
-     Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-     */
+    /// **x6** spacing constant describing space between or around elements and equal to **24 pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     static let space_24pt: CGFloat = 24
 }
 

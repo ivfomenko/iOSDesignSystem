@@ -10,18 +10,17 @@ public extension CGFloat {
 {% endmacro %}
 {% macro measurementsObjectParse key paramName value %}
     {% if key == "size" %}
-    /**
-    **{{paramName|lowerFirstWord|escapeReservedKeywords}}** size constant describing the frame of an element and equal to **{{value}} pt**.
-
-    Can be used to define element `width`, `height`, etc... .
-    */
+    /// **{{paramName|lowerFirstWord|escapeReservedKeywords}}** size constant describing the frame of an element and equal to **{{value}} pt**.
+    ///
+    /// Can be used to define element `width`, `height`, etc... .
+    ///
     {% endif %}
     {% if key == "space" %}
-    /**
-    **{{paramName|lowerFirstWord|escapeReservedKeywords}}** spacing constant describing space between or around elements and equal to **{{value}} pt**.
-
-    Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
-    */
+    
+    /// **{{paramName|lowerFirstWord|escapeReservedKeywords}}** spacing constant describing space between or around elements and equal to **{{value}} pt**.
+    ///
+    /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
+    ///
     {% endif %}
     static let {{key|lowerFirstWord|escapeReservedKeywords}}_{{value}}pt: CGFloat = {{value}}
 

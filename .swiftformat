@@ -1,7 +1,7 @@
 --commas inline
 --disable blankLinesAroundMark,wrapMultilineStatementBraces
 --enable isEmpty
---exclude **/Derived/**, **/Derived/**, **/Generated/** 
+--exclude **/Derived/**, **/Generated/** 
 --funcattributes prev-line
 --importgrouping testable-bottom
 --nospaceoperators "...,..<"

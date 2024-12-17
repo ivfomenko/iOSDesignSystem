@@ -1,0 +1,15 @@
+--commas inline
+--disable blankLinesAroundMark,wrapMultilineStatementBraces
+--enable isEmpty
+--exclude **/Derived/**, **/Derived/**, **/Generated/** 
+--funcattributes prev-line
+--importgrouping testable-bottom
+--nospaceoperators "...,..<"
+--typeattributes prev-line
+--storedvarattrs same-line
+--computedvarattrs same-line
+--header ""
+
+--enable organizeDeclarations
+--disable preferForLoop
+--markcategories true

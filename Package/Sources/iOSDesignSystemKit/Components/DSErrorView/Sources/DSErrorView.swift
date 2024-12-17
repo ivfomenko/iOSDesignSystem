@@ -48,7 +48,7 @@ public struct DSErrorView<Title: View, Subtitle: View, Illustration: View, Butto
     private var titleLabel: some View {
         title
             .font(.title)
-            .foregroundStyle(Color.primary)
+            .foregroundStyle(Color.monoPrimary)
             .lineLimit(1)
     }
 
@@ -56,7 +56,7 @@ public struct DSErrorView<Title: View, Subtitle: View, Illustration: View, Butto
     private var subtitleLabel: some View {
         subtitle
             .font(.subheadline)
-            .foregroundStyle(Color.primary)
+            .foregroundStyle(Color.monoPrimary)
             .lineLimit(3)
     }
 
@@ -66,7 +66,7 @@ public struct DSErrorView<Title: View, Subtitle: View, Illustration: View, Butto
             Spacer()
             illustration
                 .frame(width: 96.0, height: 96.0)
-                .foregroundStyle(Color.primary)
+                .foregroundStyle(Color.monoPrimary)
             Spacer()
         }
     }
@@ -76,7 +76,7 @@ public struct DSErrorView<Title: View, Subtitle: View, Illustration: View, Butto
         button
             .font(.subheadline)
             .foregroundStyle(Color.white)
-            .background(RoundedRectangle(cornerRadius: .zero).fill(Color.primary))
+            .background(RoundedRectangle(cornerRadius: .zero).fill(Color.monoPrimary))
     }
 }
 
@@ -105,8 +105,7 @@ public extension DSErrorView {
 // MARK: - Preview
 
 #Preview {
-    DSErrorView
-    (
+    DSErrorView(
         title: {
             VStack(spacing: .space_12pt) {
                 Text("Something went wrong")
@@ -115,14 +114,14 @@ public extension DSErrorView {
 
                 Text("We're working on it")
                     .font(.subheadline)
-                    .foregroundStyle(Color.primary)
+                    .foregroundStyle(Color.monoSecondary)
                     .lineLimit(3)
                     .accessibilityLabel("accessibilityLabel")
                     .accessibilityIdentifier("accessibilityIdentifier")
             }
         },
         illustration: {
-            IconToken.regular_error
+            IconToken.illustration
                 .swiftUIImage
                 .resizable()
                 .accessibilityLabel("accessibilityLabel")

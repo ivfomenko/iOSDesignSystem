@@ -3,6 +3,7 @@ import CoreFoundation
 // MARK: - Size assets declaration
 
 public extension CGFloat {
+
     // MARK: - Tokens declaration
 
     /// **x1** size constant describing the frame of an element and equal to **4 pt**.
@@ -40,10 +41,11 @@ public extension CGFloat {
     /// Can be used to define element `width`, `height`, etc... .
     ///
     static let size_24pt: CGFloat = 24
+
 }
 
-// MARK: - all for SizeToken
 
+// MARK: - all for SizeToken
 public extension CGFloat {
     static let allSizeTokens: [CGFloat] = [.size_4pt, .size_8pt, .size_12pt, .size_16pt, .size_20pt, .size_24pt]
 }
@@ -51,6 +53,7 @@ public extension CGFloat {
 // MARK: - Space assets declaration
 
 public extension CGFloat {
+
     // MARK: - Tokens declaration
 
     /// **x1** spacing constant describing space between or around elements and equal to **4 pt**.
@@ -88,10 +91,11 @@ public extension CGFloat {
     /// Can be used for `padding`, ``HStack`` or ``VStack`` spacing, `offset`, ``Spacer`` size etc... .
     ///
     static let space_24pt: CGFloat = 24
+
 }
 
-// MARK: - all for SpaceToken
 
+// MARK: - all for SpaceToken
 public extension CGFloat {
     static let allSpaceTokens: [CGFloat] = [.space_4pt, .space_8pt, .space_12pt, .space_16pt, .space_20pt, .space_24pt]
 }

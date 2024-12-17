@@ -10,3 +10,9 @@ xcassets:
     outputs:
       - templatePath: SwiftgenTemplates/Assets/IconTokens.stencil
         output: Package/Sources/iOSDesignSystemKit/Icons/Generated/IconTokens.swift
+  - inputs:
+      - Package/Sources/iOSDesignSystemKit/Colors/Generated/ColorTokens.xcassets
+    outputs:
+      - templatePath: SwiftgenTemplates/Assets/ColorTokens.stencil
+        output: Package/Sources/iOSDesignSystemKit/Colors/Generated/ColorTokens.swift
+

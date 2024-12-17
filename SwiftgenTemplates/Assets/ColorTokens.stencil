@@ -1,0 +1,76 @@
+{% if catalogs %}{% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"false"}}{% endset %}{% set bundleToken %}.module{% endset %}#if os(iOS)
+import UIKit
+#endif
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
+{% macro uiKitenumBlock assets %}
+  {% call uiKitCaseBlock assets %}
+{% endmacro %}
+{% macro uiKitCaseBlock assets %}
+  {% for asset in assets %}
+  /// DesignSystem token representation in UIKit.UIColor
+  public static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: UIColor = .init(named: "{{asset.value}}", in: {{bundleToken}}, compatibleWith: nil)!
+  {% endfor %}
+{% endmacro %}
+{% macro swiftUIEnumBlock assets %}
+  {% call swiftUICaseBlock assets %}
+{% endmacro %}
+{% macro swiftUICaseBlock assets %}
+  {% for asset in assets %}
+  /// DesignSystem token representation in SwiftUI.Color
+  public static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}}: SwiftUI.Color = .init("{{asset.value}}", bundle: {{bundleToken}})
+  {% endfor %}
+{% endmacro %}
+{% macro makeAllProprety colorType assets %}
+{% if assets.count > 0 %}
+// MARK: - all for {{colorType}}
+
+public extension {{colorType}} {
+    static let allColors: [{{colorType}}] = [{% for item in assets %}.{{item.value}}{% if not forloop.last %}, {% endif %}{% endfor %}]
+}
+{% endif %}
+{% endmacro %}
+
+
+// swiftlint:disable identifier_name line_length nesting type_body_length type_name
+// MARK: - UIColor Catalog
+
+extension UIColor {
+
+  {% if catalogs.count > 1 or param.forceFileNameEnum %}
+  {% for catalog in catalogs %}
+  {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call uiKitenumBlock catalog.assets %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  {% call uiKitenumBlock catalogs.first.assets %}
+  {% endif %}
+}
+
+{% call makeAllProprety "UIColor" catalogs.first.assets %}
+
+#if canImport(SwiftUI)
+// MARK: - SwiftUI.Color Catalog
+
+extension SwiftUI.Color {
+
+  {% if catalogs.count > 1 or param.forceFileNameEnum %}
+  {% for catalog in catalogs %}
+  {{accessModifier}} enum {{catalog.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+    {% filter indent:2 %}{% call swiftUIEnumBlock catalog.assets %}{% endfilter %}
+  }
+  {% endfor %}
+  {% else %}
+  {% call swiftUIEnumBlock catalogs.first.assets %}
+  {% endif %}
+}
+
+{% call makeAllProprety "SwiftUI.Color" catalogs.first.assets %}
+
+#endif
+
+{% else %}
+// No assets found
+{% endif %}

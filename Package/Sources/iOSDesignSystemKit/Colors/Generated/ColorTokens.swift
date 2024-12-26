@@ -24,7 +24,7 @@ public static let monoPrimary: UIColor = .init(named: "monoPrimary", in: .module
 /// DesignSystem token representation in UIKit.UIColor
 public static let monoSecondary: UIColor = .init(named: "monoSecondary", in: .module, compatibleWith: nil)!
 /// DesignSystem token representation in UIKit.UIColor
-public static let notificaiton: UIColor = .init(named: "notificaiton", in: .module, compatibleWith: nil)!
+public static let notification: UIColor = .init(named: "notification", in: .module, compatibleWith: nil)!
 /// DesignSystem token representation in UIKit.UIColor
 public static let primary: UIColor = .init(named: "primary", in: .module, compatibleWith: nil)!
 /// DesignSystem token representation in UIKit.UIColor
@@ -34,7 +34,7 @@ public static let success: UIColor = .init(named: "success", in: .module, compat
 // MARK: - all for UIColor
 
 public extension UIColor {
-static let allColors: [UIColor] = [.alternative, .error, .highlight, .monoOnContent, .monoPrimary, .monoSecondary, .notificaiton, .primary, .success]
+static let allColors: [UIColor] = [.alternative, .error, .highlight, .monoOnContent, .monoPrimary, .monoSecondary, .notification, .primary, .success]
 }
 
 #if canImport(SwiftUI)
@@ -55,7 +55,7 @@ public static let monoPrimary: SwiftUI.Color = .init("monoPrimary", bundle: .mod
 /// DesignSystem token representation in SwiftUI.Color
 public static let monoSecondary: SwiftUI.Color = .init("monoSecondary", bundle: .module)
 /// DesignSystem token representation in SwiftUI.Color
-public static let notificaiton: SwiftUI.Color = .init("notificaiton", bundle: .module)
+public static let notification: SwiftUI.Color = .init("notification", bundle: .module)
 /// DesignSystem token representation in SwiftUI.Color
 public static let primary: SwiftUI.Color = .init("primary", bundle: .module)
 /// DesignSystem token representation in SwiftUI.Color
@@ -65,7 +65,7 @@ public static let success: SwiftUI.Color = .init("success", bundle: .module)
 // MARK: - all for SwiftUI.Color
 
 public extension SwiftUI.Color {
-static let allColors: [SwiftUI.Color] = [.alternative, .error, .highlight, .monoOnContent, .monoPrimary, .monoSecondary, .notificaiton, .primary, .success]
+static let allColors: [SwiftUI.Color] = [.alternative, .error, .highlight, .monoOnContent, .monoPrimary, .monoSecondary, .notification, .primary, .success]
 }
 
 #endif

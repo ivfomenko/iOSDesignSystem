@@ -5,13 +5,13 @@
 let package = Package(
     name: "ios-design-system-kit",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v16)
     ],
     products: [
         .library(
             name: "iOSDesignSystemKit",
             targets: ["iOSDesignSystemKit"]
-        ),
+        )
     ],
     dependencies: [],
     targets: [
@@ -20,8 +20,8 @@ let package = Package(
             dependencies: [],
             path: "Package/Sources/iOSDesignSystemKit",
             resources: [
-                .process("Icons/Resources/IconTokens.xcassets"),
+                .process("Icons/Resources/IconTokens.xcassets")
             ]
-        ),
+        )
     ]
 )

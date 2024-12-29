@@ -141,3 +141,46 @@ public extension View {
         environment(\.toastToken, token)
     }
 }
+
+// MARK: - Preview
+
+#Preview {
+    PreviewView()
+}
+
+private struct PreviewView: View {
+    // MARK: Lifecycle
+
+    init(isPresented: Bool = false) {
+        self.isPresented = isPresented
+    }
+
+    // MARK: Internal
+
+    var body: some View {
+        Button("Toggle presentation") {
+            isPresented.toggle()
+        }
+        .dsToast(isPresented: $isPresented, dismissAfter: .never) {
+            DSToast(
+                title: {
+                    Text("Success: Success Message")
+                },
+                illustration: {
+                    IconToken.success.swiftUIImage.frame(width: .size_24pt, height: .size_24pt)
+                },
+                button: {
+                    Button(action: {
+                        isPresented.toggle()
+                    }, label: {
+                        IconToken.cross.swiftUIImage
+                    })
+                }
+            )
+        }
+    }
+
+    // MARK: Private
+
+    @State private var isPresented = true
+}

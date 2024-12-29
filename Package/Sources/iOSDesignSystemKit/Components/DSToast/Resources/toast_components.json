@@ -1,0 +1,54 @@
+{
+    "measurements": {
+        "normal": {
+            "minSize": {
+                "value": "288",
+                "type": "measurement"
+            },
+            "maxSize": {
+                "value": "512",
+                "type": "measurement"
+            },
+            "spacing": {
+                "value": "12",
+                "type": "measurement"
+            },
+            "padding": {
+                "value": "12",
+                "type": "measurement"
+            }
+        }
+    },
+    "toast": {
+        "error": {
+            "background": {
+                "value": "error",
+                "type": "color"
+            },
+            "foreground": {
+                "value": "error",
+                "type": "color"
+            }
+        },
+        "success": {
+            "background": {
+                "value": "success",
+                "type": "color"
+            },
+            "foreground": {
+                "value": "success",
+                "type": "color"
+            }
+        },
+        "notificatiton": {
+            "background": {
+                "value": "notification",
+                "type": "color"
+            },
+            "foreground": {
+                "value": "notification",
+                "type": "color"
+            }
+        }
+    }
+}

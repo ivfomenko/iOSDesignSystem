@@ -1,0 +1,77 @@
+{% if files %}import SwiftUI
+{% macro makeStateSpacing component %}{% filter indent:4," ", true %}{% endfilter %}{% endmacro %}
+{% macro makeSpacing component %}{% filter indent:8," ", true %}{% endfilter %}{% endmacro %}
+{% macro makeTokenStructName component %}DS{{component|swiftIdentifier|upperFirstLetter|escapeReservedKeywords|replace:"_",""}}Token{% endmacro %}
+{% macro makeStateVariable variable %}{{ variable|replace:"{",""|replace:"}",""|swiftIdentifier|lowerFirstWord|replace:"_",""| }}{% endmacro %}
+{% macro makeStatePropretyName state %}{{ state|swiftIdentifier|lowerFirstWord|replace:"_",""||indent:0," ", true }}{% endmacro %}
+{% macro makeTokenName component measurement appearance %}{%if component in buttonComponentsKeys %}{{ component }}{{appearance|swiftIdentifier|lowerFirstWord|replace:"_",""|upperFirstLetter}}{%else%}{{appearance|swiftIdentifier|lowerFirstWord|replace:"_",""}}{%endif%}{{measurement|swiftIdentifier|lowerFirstWord|replace:"_",""|upperFirstLetter}}{% endmacro %}
+{% macro makeAppearanceProperty component token property json lastInLoop %}
+{% if json.document.data[component][token][property].count > 0 %}
+    {% call makeSpacing component %}{% call makeStatePropretyName property %}: .init(
+        {% for state in json.document.data[component][token][property] %}
+            {% if (state == "value") %}
+            {% if json.document.data[component][token][property]["type"] == "other" %}
+            {% call makeOtherTypeComponentValue component json.document.data[component][token][property]["value"] forloop.last %}
+            {% else %}
+            {% call makeStateSpacing component %}.{% call makeStateVariable json.document.data[component][token][property]["value"] %}{% if not forloop.last %}, {% endif %}
+            {% endif %}
+            {% elif (state != "value") and (state != "type") %}
+            {% if json.document.data[component][token][property][state]["type"] == "other" %}
+            {% call makeOtherTypeComponentStateValue component state json.document.data[component][token][property][state]["value"] forloop.last %}
+            {% else %}
+            {% call makeStateSpacing component %}{% call makeStatePropretyName state %}: .{% call makeStateVariable json.document.data[component][token][property][state]["value"]  %}{% if not forloop.last %}, {% endif %}
+            {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% call makeSpacing component %}){% if not lastInLoop %}{{ ","|indent:0," ", true}}{% endif %}
+{% endif %}
+{% endmacro %}
+{% macro makeMeasurementsToken token json %}
+    {% if json.document.data["measurements"][token].count > 0 %}
+        measurements: .init(
+            name: "{{ token }}",
+            {% for property in json.document.data["measurements"][token] %}
+            {% call makeStatePropretyName property %}: {{ json.document.data["measurements"][token][property]["value"] }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        )
+    {% endif %}
+{% endmacro %}
+{% macro makeAppearanceToken component token json %}
+{% if json.document.data[component][token].count > 0 %}
+{% call makeSpacing component %}appearance: .init(
+    {% call makeSpacing component %}name: "{{ token }}",
+        {% for property in json.document.data[component][token] %}
+            {% call makeAppearanceProperty component token property json forloop.last %}
+        {% endfor %}
+{% call makeSpacing component %}){% if component in crossFrameWorkComponents %}{% else %},{% endif %}
+{% endif %}
+{% endmacro %}
+{% macro makeComponentToken component measurement appearance json %}
+
+    /// ``{% call makeTokenStructName component %}`` configuration with measurement `{{measurement|swiftIdentifier|lowerFirstWord|replace:"_",""}}` and `{{appearance|swiftIdentifier|lowerFirstWord|replace:"_",""}}` color style.
+    static let {% call makeTokenName component measurement appearance %}: {% call makeTokenStructName component %} = .init(
+        {% call makeAppearanceToken component appearance json %}
+        {% call makeMeasurementsToken measurement json %}
+    )
+{% endmacro %}
+{% macro main %}
+{% for json in files %}
+{% for key, value in json.document.data %}
+{% if key != "measurements" %}
+public extension {% call makeTokenStructName key %} {
+{% for measurement in json.document.data["measurements"] %}
+{% for appearance in json.document.data[key] %}
+{% call makeComponentToken key measurement appearance json %}
+{% endfor %}
+{% endfor %}
+}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endmacro %}
+
+{% call main %}
+
+{% else %}
+// No json files found
+{% endif %}

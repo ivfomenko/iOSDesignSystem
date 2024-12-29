@@ -1,5 +1,10 @@
 json:
   - inputs:
+      - Package/Sources/iOSDesignSystemKit/Components/DSToast/Resources/toast_components.json
+    outputs:
+      templatePath: SwiftgenTemplates/Json/Components.stencil
+      output: Package/Sources/iOSDesignSystemKit/Components/DSToast/Generated/DSToastTokens.swift
+  - inputs:
       - Package/Sources/iOSDesignSystemKit/Measurements/Resources/measurements.json
     outputs:
       templatePath: SwiftgenTemplates/Json/Measurements.stencil
